@@ -10,6 +10,7 @@ namespace A2
         public float ratio = 1;
         public int RecieveHit(int damage)
         {
+            if(healthState.health == 0) return 0;
             int _damage = (int)(ratio * damage);
             if (healthState.health - _damage <= 0)
             {

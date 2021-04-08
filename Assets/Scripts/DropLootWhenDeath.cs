@@ -6,7 +6,8 @@ namespace A2
 {
     public class DropLootWhenDeath : MonoBehaviour
     {
-        public GameObject healthPack;
+        public GameObject objPerfab;
+        public int percent;
         public HealthState healthState;
         void Start()
         {
@@ -15,10 +16,10 @@ namespace A2
 
         void Death()
         {
-            int count = Random.Range(0,3);
-            for(int i=0;i<count;i++)
+            int count = Random.Range(0,100);
+            if(count<percent)
             {
-                var obj = Instantiate(healthPack);
+                var obj = Instantiate(objPerfab);
                 obj.transform.position = transform.position;
             }
         }
