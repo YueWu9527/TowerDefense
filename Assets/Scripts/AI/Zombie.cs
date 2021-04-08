@@ -124,6 +124,11 @@ namespace A2
             }
         }
 
+        void OnDestroy()
+        {
+            if(ZombieSpawner.Instance != null) ZombieSpawner.Instance.ZombieDeath();
+        }
+
         IEnumerator waitOneSecond(){
             yield return new WaitForSeconds(1.0f);
             agent.SetDestination(initPos);
